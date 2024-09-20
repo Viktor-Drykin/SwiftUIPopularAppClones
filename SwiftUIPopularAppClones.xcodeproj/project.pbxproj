@@ -29,6 +29,9 @@
 		C0E8B9DD2C9C721400D1A28C /* PlaylistDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8B9D62C9C721400D1A28C /* PlaylistDescriptionCell.swift */; };
 		C0E8B9DE2C9C721400D1A28C /* ImageTitleRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8B9D72C9C721400D1A28C /* ImageTitleRowCell.swift */; };
 		C0E8B9DF2C9C721400D1A28C /* PlaylistHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8B9D82C9C721400D1A28C /* PlaylistHeaderCell.swift */; };
+		C0E8B9E92C9C75EB00D1A28C /* BumbleHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8B9E82C9C75EB00D1A28C /* BumbleHomeView.swift */; };
+		C0E8B9EB2C9C78BE00D1A28C /* BumbleFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8B9EA2C9C78BE00D1A28C /* BumbleFilterView.swift */; };
+		C0E8B9ED2C9DC25900D1A28C /* BumbleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8B9EC2C9DC25900D1A28C /* BumbleCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,9 @@
 		C0E8B9D62C9C721400D1A28C /* PlaylistDescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistDescriptionCell.swift; sourceTree = "<group>"; };
 		C0E8B9D72C9C721400D1A28C /* ImageTitleRowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTitleRowCell.swift; sourceTree = "<group>"; };
 		C0E8B9D82C9C721400D1A28C /* PlaylistHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistHeaderCell.swift; sourceTree = "<group>"; };
+		C0E8B9E82C9C75EB00D1A28C /* BumbleHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BumbleHomeView.swift; sourceTree = "<group>"; };
+		C0E8B9EA2C9C78BE00D1A28C /* BumbleFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BumbleFilterView.swift; sourceTree = "<group>"; };
+		C0E8B9EC2C9DC25900D1A28C /* BumbleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BumbleCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				C0E8B9BE2C9C71A500D1A28C /* Shared */,
+				C0E8B9E52C9C74CE00D1A28C /* Bumble */,
 				C0E8B9E02C9C721C00D1A28C /* Spotify */,
 				C01F38252C9C6D66004E96E8 /* SwiftUIPopularAppClonesApp.swift */,
 				C01F38272C9C6D66004E96E8 /* ContentView.swift */,
@@ -156,6 +163,32 @@
 				C0E8B9C92C9C71D800D1A28C /* Models */,
 			);
 			path = Spotify;
+			sourceTree = "<group>";
+		};
+		C0E8B9E52C9C74CE00D1A28C /* Bumble */ = {
+			isa = PBXGroup;
+			children = (
+				C0E8B9E72C9C75DE00D1A28C /* Core */,
+				C0E8B9E62C9C75D500D1A28C /* Components */,
+			);
+			path = Bumble;
+			sourceTree = "<group>";
+		};
+		C0E8B9E62C9C75D500D1A28C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C0E8B9EA2C9C78BE00D1A28C /* BumbleFilterView.swift */,
+				C0E8B9EC2C9DC25900D1A28C /* BumbleCardView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C0E8B9E72C9C75DE00D1A28C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C0E8B9E82C9C75EB00D1A28C /* BumbleHomeView.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,7 +274,9 @@
 				C0E8B9D02C9C71EF00D1A28C /* SpotifyHomeView.swift in Sources */,
 				C0E8B9DD2C9C721400D1A28C /* PlaylistDescriptionCell.swift in Sources */,
 				C0E8B9C52C9C71C100D1A28C /* DatabaseHelper.swift in Sources */,
+				C0E8B9ED2C9DC25900D1A28C /* BumbleCardView.swift in Sources */,
 				C0E8B9C02C9C71AD00D1A28C /* User.swift in Sources */,
+				C0E8B9E92C9C75EB00D1A28C /* BumbleHomeView.swift in Sources */,
 				C0E8B9DA2C9C721400D1A28C /* SpotifyNewReleaseCell.swift in Sources */,
 				C0E8B9C82C9C71C100D1A28C /* ImageLoaderView.swift in Sources */,
 				C0E8B9C62C9C71C100D1A28C /* Product.swift in Sources */,
@@ -252,6 +287,7 @@
 				C0E8B9C72C9C71C100D1A28C /* Constant.swift in Sources */,
 				C0E8B9CB2C9C71DE00D1A28C /* Category.swift in Sources */,
 				C0E8B9D92C9C721400D1A28C /* SpotifyCategoryCell.swift in Sources */,
+				C0E8B9EB2C9C78BE00D1A28C /* BumbleFilterView.swift in Sources */,
 				C0E8B9DC2C9C721400D1A28C /* SongRowCell.swift in Sources */,
 				C0E8B9DF2C9C721400D1A28C /* PlaylistHeaderCell.swift in Sources */,
 				C0E8B9DE2C9C721400D1A28C /* ImageTitleRowCell.swift in Sources */,
