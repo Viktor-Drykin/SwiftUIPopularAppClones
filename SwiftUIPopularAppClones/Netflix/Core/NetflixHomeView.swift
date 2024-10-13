@@ -13,6 +13,8 @@ struct NetflixHomeView: View {
     @State private var filters = FilterModel.mockArray
     @State private var selectedFilter: FilterModel? = nil
     @State private var fullHeaderSize: CGSize = .zero
+    @State private var scrollViewOffset: CGFloat = 0
+
     @State private var heroProduct: Product? = nil
     @State private var currentUser: User? = nil
     @State private var productRows: [ProductRow] = []
@@ -21,7 +23,24 @@ struct NetflixHomeView: View {
         ZStack(alignment: .top) {
             Color.netflixBlack.ignoresSafeArea()
 
-            ScrollView(.vertical) {
+            gradientLayer
+
+            scrollViewLayer
+
+            fullHeaderWithFilter
+        }
+        .foregroundStyle(.netflixWhite)
+        .task {
+            await getData()
+        }
+        .toolbar(.hidden, for: .navigationBar)
+    }
+
+    private var scrollViewLayer: some View {
+        ScrollViewWithOnScrollChanged(
+            .vertical,
+            showsIndicators: false,
+            content: {
                 VStack(spacing: 0) {
                     Rectangle()
                         .opacity(0)
@@ -33,13 +52,18 @@ struct NetflixHomeView: View {
 
                     categoryRows
                 }
-            }
-            .scrollIndicators(.hidden)
+            },
+            onScrollChanged: { offset in
+                scrollViewOffset = min(0, offset.y)
+            })
+    }
 
-            VStack(spacing: 0) {
-                header
-                    .padding(.horizontal, 16)
+    private var fullHeaderWithFilter: some View {
+        VStack(spacing: 0) {
+            header
+                .padding(.horizontal, 16)
 
+            if scrollViewOffset > -20 {
                 NetflixFilterBarView(
                     filters: filters,
                     selectedFilter: selectedFilter,
@@ -51,16 +75,27 @@ struct NetflixHomeView: View {
                     }
                 )
                 .padding(.top, 16)
+                .transition(.move(edge: .top).combined(with: .opacity))
             }
-            .readingFrame { frame in
+        }
+        .padding(.bottom, 8)
+        .background(
+            ZStack {
+                if scrollViewOffset < -70 {
+                    Rectangle()
+                        .fill(Color.clear)
+                        .background(.ultraThinMaterial)
+                        .brightness(-0.2)
+                        .ignoresSafeArea()
+                }
+            }
+        )
+        .animation(.smooth, value: scrollViewOffset)
+        .readingFrame { frame in
+            if fullHeaderSize == .zero {
                 fullHeaderSize = frame.size
             }
         }
-        .foregroundStyle(.netflixWhite)
-        .task {
-            await getData()
-        }
-        .toolbar(.hidden, for: .navigationBar)
     }
 
     private var header: some View {
@@ -126,6 +161,19 @@ struct NetflixHomeView: View {
         }
     }
 
+    private var gradientLayer: some View {
+        ZStack {
+            LinearGradient(colors: [.netflixDarkGray.opacity(1), .netflixDarkGray.opacity(0)], startPoint: .top, endPoint: .bottom)
+            .ignoresSafeArea()
+
+            LinearGradient(colors: [.netflixDarkRed.opacity(0.5), .netflixDarkRed.opacity(0)], startPoint: .top, endPoint: .bottom)
+            .ignoresSafeArea()
+        }
+        .frame(maxHeight: max(10, 400 + scrollViewOffset * 0.75))
+        .opacity(scrollViewOffset < -250 ? 0 : 1)
+        .animation(.easeInOut, value: scrollViewOffset)
+    }
+
     private func getData() async {
         guard productRows.isEmpty else { return }
 
@@ -138,7 +186,7 @@ struct NetflixHomeView: View {
             let allBrands = Set(products.compactMap { $0.brand })
             for brand in allBrands {
                 //let products = self.products.filter { $0.brand == brand }
-                rows.append(ProductRow(title: brand.capitalized, products: products))
+                rows.append(ProductRow(title: brand.capitalized, products: products.shuffled()))
             }
             productRows = rows
         } catch {
