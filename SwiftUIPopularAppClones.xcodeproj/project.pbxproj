@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C00D9EFD2CBC2C190010E071 /* NetflixMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00D9EFC2CBC2C190010E071 /* NetflixMovieCell.swift */; };
 		C01F38262C9C6D66004E96E8 /* SwiftUIPopularAppClonesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01F38252C9C6D66004E96E8 /* SwiftUIPopularAppClonesApp.swift */; };
 		C01F38282C9C6D66004E96E8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01F38272C9C6D66004E96E8 /* ContentView.swift */; };
 		C01F382A2C9C6D6A004E96E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C01F38292C9C6D6A004E96E8 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C00D9EFC2CBC2C190010E071 /* NetflixMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixMovieCell.swift; sourceTree = "<group>"; };
 		C01F38222C9C6D66004E96E8 /* SwiftUIPopularAppClones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIPopularAppClones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C01F38252C9C6D66004E96E8 /* SwiftUIPopularAppClonesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPopularAppClonesApp.swift; sourceTree = "<group>"; };
 		C01F38272C9C6D66004E96E8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				C0E8B9FF2C9F1DA500D1A28C /* NetflixFilterView.swift */,
 				C0E8BA012C9F1F1A00D1A28C /* NetflixFilterBarView.swift */,
 				C08592D42CB58AF40095EC98 /* NetflixHeroCell.swift */,
+				C00D9EFC2CBC2C190010E071 /* NetflixMovieCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				C0E8B9CF2C9C71EF00D1A28C /* SpotifyPlaylistView.swift in Sources */,
 				C0E8B9F72C9EF93200D1A28C /* BumbleChatPreviewCell.swift in Sources */,
 				C0E8B9C72C9C71C100D1A28C /* Constant.swift in Sources */,
+				C00D9EFD2CBC2C190010E071 /* NetflixMovieCell.swift in Sources */,
 				C0E8B9CB2C9C71DE00D1A28C /* Category.swift in Sources */,
 				C08592D52CB58AF40095EC98 /* NetflixHeroCell.swift in Sources */,
 				C0E8B9D92C9C721400D1A28C /* SpotifyCategoryCell.swift in Sources */,

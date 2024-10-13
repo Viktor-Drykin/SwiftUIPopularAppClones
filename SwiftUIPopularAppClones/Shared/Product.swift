@@ -29,6 +29,10 @@ struct Product: Decodable, Identifiable {
     let minimumOrderQuantity: Int
     let images: [String]
     let thumbnail: String
+    let recentlyAdded: Bool = {
+        //25% of time is recentlyAdded
+        Int.random(in: 1...4) == 1
+    }()
 }
 
 struct ProductRow: Identifiable {
